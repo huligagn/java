@@ -1,7 +1,5 @@
 package com.huligang;
 
-import java.util.Scanner;
-
 /**
  * 最长递增子序列：
  *  1. 排序+LCS
@@ -39,7 +37,7 @@ public class LIS {
     }
 
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
+
         int[] a = {2,1,4,3,1,5,6};
         LIS lis = new LIS();
         System.out.println(lis.lis_DP(a));
