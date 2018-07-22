@@ -1,7 +1,7 @@
 package com.huligang.offer;
 
 /**
- * 二叉搜索树的后序遍历序列
+ * 判断是否为二叉搜索树的后序遍历序列
  */
 public class Problem23 {
 
