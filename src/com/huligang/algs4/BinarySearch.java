@@ -1,7 +1,6 @@
 package com.huligang.algs4;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class BinarySearch {
 
@@ -19,23 +18,15 @@ public class BinarySearch {
     }
 
     private static String getString(int[] a) {
-        String a_str = "[ ";
-        for (int i = 0; i < a.length; i++) {
-            a_str += a[i] + " ";
+        StringBuilder a_str = new StringBuilder("[ ");
+        for (int anA : a) {
+            a_str.append(anA).append(" ");
         }
-        a_str += "]";
-        return a_str;
+        a_str.append("]");
+        return a_str.toString();
     }
 
     public static void main(String[] args) {
-//        Scanner sc = new Scanner(System.in);
-//        int num = sc.nextInt();
-//        int[] a = new int[num];
-//        for (int i = 0; i < num; i++) {
-//            a[i] = sc.nextInt();
-//        }
-//
-//        int key = sc.nextInt();
         int[] a = {1, 3, 5, 2, 4};
         int key = 4;
 
