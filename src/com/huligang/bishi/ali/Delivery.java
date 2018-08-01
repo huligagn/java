@@ -1,4 +1,4 @@
-package com.huligang.ali;
+package com.huligang.bishi.ali;
 
 import java.util.Scanner;
 
