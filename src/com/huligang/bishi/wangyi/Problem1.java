@@ -9,7 +9,7 @@ public class Problem1 {
         private int mm;
         private int ss;
 
-        public Time(String s) {
+        Time(String s) {
             String[] tmp = s.split(":");
             assert tmp.length == 3;
             this.hh = Integer.parseInt(tmp[0]);
@@ -17,14 +17,11 @@ public class Problem1 {
             this.ss = Integer.parseInt(tmp[2]);
         }
 
-        public boolean check() {
-            if (this.hh > 23 || this.mm > 59 || this.ss > 59) {
-                return false;
-            }
-            return true;
+        boolean check() {
+            return this.hh <= 23 && this.mm <= 59 && this.ss <= 59;
         }
 
-        public void magic() {
+        void magic() {
             if (this.hh > 23) {
                 this.hh = this.hh % 10;
             }

@@ -64,9 +64,7 @@ public class Problem3 {
             for (int j = 0; j < m; j++) {
                 String s = sc.nextLine();
                 char[] chars = s.toCharArray();
-                for(int k = 0; k < n; k++) {
-                    tmp[j][k] = chars[k];
-                }
+                if (n >= 0) System.arraycopy(chars, 0, tmp[j], 0, n);
             }
             String target = sc.nextLine();
             result[i] = count(tmp, m, n, target);
