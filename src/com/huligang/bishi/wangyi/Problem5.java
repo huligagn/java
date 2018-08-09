@@ -1,7 +1,5 @@
 package com.huligang.bishi.wangyi;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -26,7 +24,6 @@ public class Problem5 {
             int n = hashMap.get(e);
             count += n;
             if (n % (e + 1) == 0) {
-                continue;
             } else {
                 count += e+1 - n%(e+1);
             }
