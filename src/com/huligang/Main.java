@@ -1,57 +1,49 @@
 package com.huligang;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-    private static class Point{
-        int px;
-        int py;
-        boolean visited;
 
-        Point(int px, int py) {
-            this.px = px;
-            this.py = py;
-            this.visited = false;
-        }
-
-        int getLength(Point p){
-            return Math.abs(px - p.px) + Math.abs(py - p.py);
-        }
-    }
-
-    private static final Point START = new Point(0,0);
-    private static int shortestPath = Integer.MAX_VALUE;
-
-    private static int calculate(Point start, Point[] points, int sum, int count){
-
-        if(count == points.length){
-            shortestPath = Math.min(shortestPath, sum + start.getLength(START));
-            return shortestPath;
-        }
-        for (Point point : points) {
-            if (!point.visited) {
-                sum += point.getLength(start);
-                if (sum < shortestPath) {
-                    point.visited = true;
-                    calculate(point, points, sum, count + 1);
-                }
-                sum -= point.getLength(start);
-                point.visited = false;
+    public static int collect(int[][] matrix, int r) {
+        int sum = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            if (matrix[r][i] != 0) {
+                sum += 1;
+                sum += collect(matrix, i);
             }
         }
-        return shortestPath;
+        return sum;
     }
 
-    public static void main(String[] args){
-        Scanner input = new Scanner(System.in);
-        int N = Integer.parseInt(input.nextLine().trim());
-        Point[] points = new Point[N];
-        for(int i = 0; i<N; i++){
-            String[] locations = input.nextLine().trim().split(",");
-            points[i] = new Point(Integer.parseInt(locations[0]), Integer.parseInt(locations[1]));
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int M = sc.nextInt();
+        sc.nextInt();
+
+
+
+        int[][] input = new int[N][N];
+        for (int i = 0; i < M; i++) {
+            int start = sc.nextInt();
+            int end = sc.nextInt();
+            input[start][end] = 1;
         }
-        int min = calculate(START, points, 0, 0);
-        System.out.println(min);
+
+        int [] result = new int[N];
+
+        for (int i = 0; i < N; i++) {
+            result[i] = collect(input,i);
+        }
+
+        int max = result[0];
+        for (int i = 1; i < N; i++) {
+            if(max < result[i]) max = result[i];
+        }
+
+        System.out.println(max);
+
     }
 }
